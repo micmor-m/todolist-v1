@@ -21,6 +21,10 @@ app.get("/", (req, res) => {
   res.render("list", { kindOfDay: day });
 });
 
+app.post("/", (req, res) => {
+  console.log(req.body.newItem);
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server listening at post 3000");
 });
