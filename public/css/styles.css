@@ -4,8 +4,95 @@
 
 html {
   font-family: sans-serif;
+  background-color: #e4e9fd;
+  /* to show diagonal line with two different colors */
+  background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+  /* do not show side bar at the beginning when no items are present */
+  min-height: 1000px;
 }
 
 body {
   margin: 0;
+}
+
+h1 {
+  color: #fff;
+  padding: 10px;
+}
+
+.box {
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  margin: 1rem auto;
+  max-width: 400px;
+}
+
+#heading {
+  text-align: center;
+  background-color: #a683e3;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.item input:checked + p {
+  text-decoration-line: line-through;
+  text-decoration-color: #a683e3;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+.item p {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+form {
+  text-align: center;
+  margin-left: 20px;
+}
+
+.item button {
+  border-radius: 50%;
+  min-height: 50px;
+  min-width: 50px;
+  border-color: transparent;
+  background-color: #a683e3;
+  color: #fff;
+  font-size: 30px;
+  border-width: 0;
+}
+
+.item input[type="text"] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #a683e3;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
 }
