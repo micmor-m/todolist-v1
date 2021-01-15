@@ -17,6 +17,10 @@ app.get("/work", (req, res) => {
   res.render("list", { listTitle: "Work List", newListItems: works });
 });
 
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
 app.get("/", (req, res) => {
   const today = new Date();
 

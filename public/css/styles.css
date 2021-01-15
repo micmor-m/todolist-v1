@@ -53,7 +53,7 @@ input[type="checkbox"] {
   margin: 20px;
 }
 
-.item p {
+p {
   padding: 20px;
   font-size: 20px;
   font-weight: 200;
@@ -95,4 +95,10 @@ input[type="text"]:focus {
 ::placeholder {
   color: grey;
   opacity: 1;
+}
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
