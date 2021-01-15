@@ -7,6 +7,9 @@ app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//create static folder in the server containing all files to server the client
+app.use(express.static("public"));
+
 let items = [];
 
 app.get("/", (req, res) => {
