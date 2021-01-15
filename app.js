@@ -11,6 +11,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 let items = [];
+let works = [];
+
+app.get("/work", (req, res) => {
+  res.render("list", { listTitle: "Work List", newListItems: works });
+});
 
 app.get("/", (req, res) => {
   const today = new Date();
@@ -23,12 +28,17 @@ app.get("/", (req, res) => {
   };
   day = today.toLocaleDateString("en-US", options);
 
-  res.render("list", { kindOfDay: day, newListItems: items });
+  res.render("list", { listTitle: day, newListItems: items });
 });
 
 app.post("/", (req, res) => {
-  items.push(req.body.newItem);
-  res.redirect("/");
+  if (req.body.list === "Work") {
+    works.push(req.body.newItem);
+    res.redirect("/work");
+  } else {
+    items.push(req.body.newItem);
+    res.redirect("/");
+  }
 });
 
 app.listen(process.env.PORT || 3000, () => {
