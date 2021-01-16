@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const https = require("https");
 const path = require("path");
 
+const { getDate, getDay } = require("./date");
+
 app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,16 +24,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  const today = new Date();
-
-  let day = "";
-  const options = {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  };
-  day = today.toLocaleDateString("en-US", options);
-
+  day = getDate();
   res.render("list", { listTitle: day, newListItems: items });
 });
 
